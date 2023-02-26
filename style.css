@@ -266,3 +266,28 @@ h1{
     overflow-x: auto;
   }
 }
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+  }
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .curved-rectangular-div {
+    height: 50%;
+    width: 90%;
+    margin-top: 20px;
+  }
+  .curved-header {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .curved-logo img {
+    max-width: 60px;
+    max-height: 60px;
+  }
+}
