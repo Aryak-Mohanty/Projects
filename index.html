@@ -6,6 +6,11 @@
     <link rel="stylesheet"  href="style.css">
   </head>
   <body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  href="css/style.css">
+  </head>
+  <body>
     <div class="topnav">
       <a class="active" href="https://aryak-mohanty.github.io/Projects/"><b>Home</b></a>
       <!--<a href="#">About</a>
@@ -20,11 +25,23 @@
       </a>
     </div>
     <div class="curved-rectangular-div">
+      <img src="Martz90-Circle-Addon2-Notepad.512.png" alt="copy" class="note">
       <h1 class="curved-header">Projects</h1>
       <a href="https://aryak-mohanty.github.io/Resume" class="curved-button">Resume</a>
       <div class="curved-logo">
         <a href="https://github.com/Aryak-Mohanty" class="git-button"> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Your Logo"></a>
       </div>
     </div>
-  </body>
+    <script type="text/javascript">
+const navbar = document.querySelector('.topnav');
+const navbarHeight = navbar.offsetHeight;
+window.addEventListener('scroll', () => {
+const scrollPosition = window.scrollY;
+if (scrollPosition > navbarHeight) {
+  navbar.classList.add('hidden');
+} else {
+  navbar.classList.remove('hidden');
+}
+});
+</body>
 </html>
