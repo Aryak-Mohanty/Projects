@@ -3,11 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"  href="style.css">
-  </head>
-  <body>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"  href="css/style.css">
   </head>
   <body>
@@ -33,15 +28,27 @@
       </div>
     </div>
     <script type="text/javascript">
+    // Get the navbar element
 const navbar = document.querySelector('.topnav');
+
+// Get the height of the navbar
 const navbarHeight = navbar.offsetHeight;
+
+// Add an event listener to the window for the scroll event
 window.addEventListener('scroll', () => {
+// Get the current scroll position
 const scrollPosition = window.scrollY;
+
+// Check if the user has scrolled past the navbar
 if (scrollPosition > navbarHeight) {
+  // Add the 'hidden' class to the navbar
   navbar.classList.add('hidden');
 } else {
+  // Remove the 'hidden' class from the navbar
   navbar.classList.remove('hidden');
 }
 });
-</body>
+
+    </script>
+  </body>
 </html>
