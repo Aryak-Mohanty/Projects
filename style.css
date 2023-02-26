@@ -212,8 +212,8 @@ h1{
 
 @media screen and (max-width: 768px) {
   .note {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
   }
 }
 
