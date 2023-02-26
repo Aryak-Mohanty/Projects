@@ -7,6 +7,9 @@ body {
   height: 100vh;
   background-color: #F5F5DC;
 }
+.my-element {
+  transform: scale(0.5);
+}
 h1{
   color: purple;
 }
