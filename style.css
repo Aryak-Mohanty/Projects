@@ -84,7 +84,7 @@ h1{
 .curved-rectangular-div {
   height: 600px;
   width: 500px;
-
+  margin-top: 50px;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
