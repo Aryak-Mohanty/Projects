@@ -347,26 +347,22 @@ function toggleDropdown() {
   dropdownContent.classList.toggle("show");
 }
 function shareOnLinkedIn() {
-  var url = "https://www.linkedin.com/post?mini=true&url=" + encodeURIComponent("https://aryak-mohanty.github.io/Projects/");
+  var url = "https://www.linkedin.com/shareArticle?mini=true&url=https%3A//aryak-mohanty.github.io/Projects/";
   window.open(url);
 }
 function shareOnGmail() {
-  var subject = "Check out my website!";
-  var body = "Here is the link to my website: https://aryak-mohanty.github.io/Projects/";
-  var url = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-  var url = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-  var url = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  var url = "mailto:?subject=Check%20out%20this%20cool%20website!&body=Check%20this%20website%20out%3A%0Ahttps%3A//aryak-mohanty.github.io/Projects/";
   window.open(url);
 }
 function shareOnTelegram() {
-  var text = encodeURIComponent("Check out my website: hhttps://aryak-mohanty.github.io/Projects/");
-  var url = "https://t.me/share/url?text=" + text;
+  var url = "https://t.me/share/url? text=Check out my website & url=https://aryak-mohanty.github.io/Projects/";
   window.open(url);
 }
 function shareOnDiscord() {
   var text = encodeURIComponent("Check out my website: https://aryak-mohanty.github.io/Projects/");
   var url = "https://discord.com/channels/@me?chat=" + text;
   window.open(url);
+}
 }
 </script>
 </head>
