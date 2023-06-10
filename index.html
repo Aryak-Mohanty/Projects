@@ -115,13 +115,13 @@
       padding: 0 10px;
     }
   }
-  .curved-header {
-    font-size: 3em;
-    margin-bottom: 2em;
-    font-weight: bold;
-    text-align: center;
+ 
+  @media screen and (orientation: landscape) {
+    body.landscape-mode {
+      overflow: hidden; /* Prevent vertical scrolling in landscape mode */
+    }
   }
-  
+ 
   @media screen and (max-width: 768px) {
     .curved-header {
       font-size: 40px;
@@ -243,12 +243,12 @@
       height: 25px;
     }
   }
-  @media screen and (max-width: 768px) and (orientation: landscape) {
-    /* adjust styles for small screens in landscape orientation */
-    body {
-      overflow-x: auto;
-    }
+  .curved-header-landscape {
+      font-size: 30px;
+      margin-bottom: 20px;
   }
+
+
   @media (max-width: 600px) {
     body {
       margin: 0;
@@ -354,6 +354,37 @@ function shareOnDiscord() {
   var url = "https://discord.com/channels/@me?chat=" + text;
   window.open(url);
 }
+function handleOrientationChange() {
+    var curvedHeader = document.querySelector(".curved-header");
+
+    if (window.innerWidth < window.innerHeight) {
+      // Portrait mode
+      curvedHeader.style.display = "block";
+    } else {
+      // Landscape mode
+      curvedHeader.style.display = "none";
+    }
+  }
+
+  // Add event listener for orientation change
+  window.addEventListener("orientationchange", handleOrientationChange);
+
+  // Check initial orientation
+  handleOrientationChange();
+  //changesize
+  window.addEventListener('resize', function() {
+    var body = document.querySelector('body');
+    var curvedButton = document.querySelector('.curved-button');
+  
+    // Check if the device is in landscape mode
+    if (window.innerWidth > window.innerHeight) {
+      body.classList.add('landscape-mode');
+      curvedButton.style.marginTop = '400px'; /* Adjust the value as needed */
+    } else {
+      body.classList.remove('landscape-mode');
+      curvedButton.style.marginTop = ''; /* Reset the margin-top property */
+    }
+  });
 </script>
 </head>
 <body>
@@ -374,7 +405,7 @@ function shareOnDiscord() {
       </nav>
     <div class="curved-rectangular-div">
       <!-- <img src="Martz90-Circle-Addon2-Notepad.512.png" alt="copy" class="note"> -->
-      <h1 class="curved-header">Projects</h1>
+      <h1 id="curvedHeader" class="curved-header">Projects</h1>
       <a href="https://aryak-mohanty.github.io/Resume" class="curved-button">Resume</a>
       <a href="https://aryak-mohanty.github.io/Calculator/" class="curved-button">Calculator</a>
       <a href="https://aryak-mohanty.github.io/Weather/" class="curved-button">Check weather</a>
