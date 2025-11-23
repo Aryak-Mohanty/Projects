@@ -2,311 +2,396 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Aryak Mohanty</title>
   <link rel="icon" type="image/png" href="Martz90-Circle-Addon2-Notepad.512.png">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-  body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #F5F5DC;
-  }
-  h1{
-    color: purple;
-  }
-  /* Add a black background color to the top navigation */
-  .topnav {
-    overflow: hidden;
-    background-color: #A7727D;
-    position: absolute;
-    left: 0;
-    right: 0;
-    opacity: 1;
-
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    display: block;
-    color: green;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Add an active class to highlight the current page */
-  .active {
-    background-color: #EDDBC7;
-    color: white;
-  }
-  
-  /* Hide the link that should open and close the topnav on small screens */
-  .topnav .icon {
-    display: none;
-  }
-  .topnav.hidden {
-    display: none;
-  }
-  .curved-button {
-    border-radius: 30px;
-    background-color: #333;
-    color: #fff;
-    font-size: 18px;
-    padding: 12px 24px;
-    border: none;
-    margin-top: 20px;
-    width: 200px;
-    text-align: center;
-    text-decoration: none;
-  
-  }  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
+    :root {
+      --primary-color: #6C63FF;
+      --secondary-color: #FF6584;
+      --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text-color: #2d3436;
+      --navbar-bg: rgba(255, 255, 255, 0.95);
+      --dropdown-bg: #ffffff;
+      --dropdown-text: #212529;
+      --shadow-color: rgba(0, 0, 0, 0.05);
     }
-    50% {
-      transform: scale(1.1);
+
+    body.dark-mode {
+      --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      --card-bg: rgba(30, 30, 40, 0.95);
+      --text-color: #e94560;
+      /* Highlight color for text in dark mode */
+      --navbar-bg: rgba(26, 26, 46, 0.95);
+      --dropdown-bg: #1a1a2e;
+      --dropdown-text: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.3);
     }
-    100% {
-      transform: scale(1);
+
+    /* Specific text color override for dark mode readability if needed */
+    body.dark-mode .card-title,
+    body.dark-mode .nav-link,
+    body.dark-mode h1,
+    body.dark-mode .dropdown-item {
+      color: #ffffff !important;
     }
-  }
-  .curved-button:hover {
-    background-color: #1a237e;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    color: red;
-    animation: pulse 1s infinite;
-  }
-  .curved-logo {
-    display: inline-block; position: relative; width: 50px; height: 20px;
-    margin-top: -10px;
 
-
-  }
-  .curved-logo img {
-    max-width: 90px;
-    max-height: 90px;
-    border-radius: 40px;
-    transition: all 0.2s ease-in-out;
-    color: inherit !important;
-    background-color: transparent !important;
-    transform: none !important;
-
-  
-  }
-  .curved-logo a {
-  color: inherit !important; /* Prevents green color from affecting the logo */
-  background: none !important; /* Ensures no background color is applied */
-}
-
-  .git-button {
-    display: inline-block;
-    transition: transform 0.2s ease;
-  }
-  .git-button:hover {
-    transform: scale(0.9);
-  }
-  .note {
-    max-width: 30%;
-    max-height: 30%;
-    border-radius: 50%;
-  }
-  .curved-header-landscape {
-      font-size: 30px;
-      margin-bottom: 20px;
-  }
-  .curved-rectangular-div {
-    height: 60%;
-    width: 70%;
-    margin-top: 60px;
-    border-radius: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px; /* increase the font size to 30px */
-    text-align: center; /* center the text within the div */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-    .curved-header {
-      font-size: 90px;
-      margin-top: 40px;
-      margin-bottom: 10px;
+    body.dark-mode .nav-link:hover,
+    body.dark-mode .dropdown-item:hover {
+      color: var(--primary-color) !important;
     }
-    .curved-logo img {
-      max-width: 40px;
-      max-height: 50px;
-      color: inherit !important;
-      background-color: transparent !important; 
 
+    /* Fix for navbar toggler in dark mode */
+    body.dark-mode .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.5);
     }
-    nav {
-	  height: 50px;
-      position: fixed;
+
+    body.dark-mode .navbar-toggler-icon {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-color);
+      overflow-x: hidden;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: var(--navbar-bg) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px var(--shadow-color);
+      padding: 1rem 0;
+      transition: background-color 0.5s ease;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-color) !important;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    /* Use ::before for the underline to avoid conflict with Bootstrap's .dropdown-toggle::after */
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::before {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+
+    .dropdown-menu {
+      background-color: var(--dropdown-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-item {
+      color: var(--dropdown-text);
+      font-size: 1.1rem;
+      /* Increased font size */
+      padding: 0.75rem 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background-color: transparent;
+      color: var(--primary-color);
+      transform: translateX(5px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 4rem 0 2rem;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    /* Project Cards */
+    .project-card {
+      border: none;
+      border-radius: 20px;
+      background: var(--card-bg);
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px var(--shadow-color);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 1;
-      opacity: 1;
-      background-color: rgba(245, 245, 220, 1);
-
-    
-	}
-	ul {
-	  list-style-type: none;
-	  margin: 0;
-	  padding: 0;
-	  overflow: hidden;
-	}
-	li {
-	  float: left;
-	}
-	a {
-	  display: block;
-	  color: green;
-	  text-align: center;
-	  padding: 14px 16px;
-	  text-decoration: none;
-	}
-	nav a:hover {
-	  background-color: green;
-	  color: #fff;
-      transform: scale(1.2);
-	}
-	nav a {
-	  transition: transform 0.3s ease;
-	}
-    .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #F5F5DC;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
     }
-    .dropdown-content.show {
-    display: block;
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
-    .dropdown-content a:hover{
-        font-weight: bold;
-    color: white;
+
+    .project-card:hover::before {
+      transform: scaleX(1);
     }
-    @media screen and (max-width: 915px) and (orientation: landscape) {
-      .curved-rectangular-div {
-    
-        position: relative;
-        top: 70px;
-        width: 90%;  
-        height: auto;
-        padding: 10px; 
-        border-radius: 20px;
-        font-size: 20px; 
-        text-align: center;
-        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.2);
-  
 
-
-  }
-
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      transition: transform 0.4s ease;
     }
-    @media screen and (max-width: 768px) {
-  .curved-header {
-    font-size: 40px; /* Reduce font size for mobile */
-  }
 
-    .curved-button {
-    font-size: 14px; /* Adjust font size */
-    font-weight: bold; /* Make text thicker */
-    padding: 12px 5vw; /* Use viewport width for better scaling */
-    width: 80%; /* Make button width responsive */
-    max-width: 250px; /* Prevent excessive stretching */
-  }
+    .project-card:hover .card-icon {
+      transform: scale(1.2) rotate(5deg);
+    }
 
-}
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin: 0;
+      transition: color 0.3s ease;
+    }
 
-  </style>
-  <script>
-   document.addEventListener("click", function (event) {
-      var dropdownContent = document.querySelector(".dropdown-content");
-      var dropbtn = document.querySelector(".dropbtn");
+    /* Github Button Animation */
+    .github-btn {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
 
-      // Close the dropdown if the clicked element is not inside the dropdown or the dropbtn
-      if (event.target !== dropdownContent && event.target !== dropbtn && !dropdownContent.contains(event.target)) {
-        dropdownContent.classList.remove("show");
+    body.dark-mode .github-btn {
+      color: #ffffff;
+    }
+
+    .github-btn:hover {
+      color: var(--primary-color) !important;
+      transform: rotate(360deg);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
       }
-    });
 
-    function toggleDropdown() {
-      var dropdownContent = document.querySelector(".dropdown-content");
-      dropdownContent.classList.toggle("show");
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background: var(--navbar-bg);
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link::before {
+        display: none;
+        /* Disable underline animation on mobile for cleaner look */
+      }
+
+      .nav-link {
+        padding: 0.5rem 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .project-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" onclick="toggleDarkMode()" title="Click to toggle Dark Mode">
+        <i class="fas fa-code me-2"></i>Aryak
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center gap-3">
+          <li class="nav-item">
+            <a class="nav-link" href="Resume.pdf" target="_blank">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Share
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg">
+              <li><a class="dropdown-item" href="#" onclick="shareOnLinkedIn()"><i
+                    class="fab fa-linkedin me-2 text-primary"></i>LinkedIn</a></li>
+              <li><a class="dropdown-item" href="#" onclick="shareOnGmail()"><i
+                    class="fas fa-envelope me-2 text-danger"></i>Gmail</a></li>
+              <li><a class="dropdown-item" href="#" onclick="shareOnTelegram()"><i
+                    class="fab fa-telegram me-2 text-info"></i>Telegram</a></li>
+              <li><a class="dropdown-item" href="#" onclick="shareOnDiscord()"><i
+                    class="fab fa-discord me-2 text-primary"></i>Discord</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="https://github.com/Aryak-Mohanty" target="_blank" class="github-btn">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container" style="margin-top: 100px;">
+    <div class="hero-section">
+      <h1 class="hero-title">My Projects</h1>
+    </div>
+
+    <div class="row g-4 justify-content-center pb-5">
+      <!-- QR Code Generator -->
+      <div class="col-md-6 col-lg-4">
+        <a href="https://aryak-mohanty.github.io/QR-getter/" class="project-card">
+          <i class="fas fa-qrcode card-icon"></i>
+          <h3 class="card-title">QR Code Generator</h3>
+        </a>
+      </div>
+
+      <!-- Calculator -->
+      <div class="col-md-6 col-lg-4">
+        <a href="https://aryak-mohanty.github.io/Calculator/" class="project-card">
+          <i class="fas fa-calculator card-icon"></i>
+          <h3 class="card-title">Calculator</h3>
+        </a>
+      </div>
+
+      <!-- Weather Web -->
+      <div class="col-md-6 col-lg-4">
+        <a href="https://aryak-mohanty.github.io/Weather-web/" class="project-card">
+          <i class="fas fa-cloud-sun card-icon"></i>
+          <h3 class="card-title">Check Weather</h3>
+        </a>
+      </div>
+
+      <!-- Search Modernize -->
+      <div class="col-md-6 col-lg-4">
+        <a href="https://aryak-mohanty.github.io/Search_modernize/" class="project-card">
+          <i class="fas fa-search card-icon"></i>
+          <h3 class="card-title">Search The Internet</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Share Functions
     function shareOnLinkedIn() {
       var url = "https://www.linkedin.com/shareArticle?mini=true&url=https%3A//aryak-mohanty.github.io/Projects/";
       window.open(url);
     }
+
     function shareOnGmail() {
       var url = "mailto:?subject=Check%20out%20this%20cool%20website!&body=Check%20this%20website%20out%3A%0Ahttps%3A//aryak-mohanty.github.io/Projects/";
       window.open(url);
     }
+
     function shareOnTelegram() {
-      var url = "https://t.me/share/url? text=Check out my website & url=https://aryak-mohanty.github.io/Projects/";
+      var url = "https://t.me/share/url?text=Check out my website&url=https://aryak-mohanty.github.io/Projects/";
       window.open(url);
     }
+
     function shareOnDiscord() {
       var text = encodeURIComponent("Check out my website: https://aryak-mohanty.github.io/Projects/");
       var url = "https://discord.com/channels/@me?chat=" + text;
       window.open(url);
     }
   </script>
-</head>
-
-<body>
-  <nav>
-    <ul>
-      <li><a href="Resume.pdf" target="_blank">About</a></li>
-      <li class="dropdown">
-        <a href="javascript:void(0);" class="dropbtn" onclick="toggleDropdown()">Share</a>
-        <div class="dropdown-content">
-          <a href="javascript:void(0);" onclick="shareOnLinkedIn()" style="color: Black;">LinkedIn</a>
-          <a href="javascript:void(0);" onclick="shareOnGmail()" style="color: Black;">Gmail</a>
-          <a href="javascript:void(0);" onclick="shareOnTelegram()" style="color: Black;">Telegram</a>
-          <a href="javascript:void(0);" onclick="shareOnDiscord()" style="color: Black;">Discord</a>
-
-        </div>
-      </li>
-      <li style="float: right; padding-right: 30px;">
-        <div class="curved-logo">
-          <a href="https://github.com/Aryak-Mohanty" class="git-button"> <img
-              src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Your Logo"></a>
-          </div>
-      </li>
-    </ul>
-    
-  </nav>
-  <div class="curved-rectangular-div">
-    <!-- <img src="Martz90-Circle-Addon2-Notepad.512.png" alt="copy" class="note"> -->
-    <h1 id="curvedHeader" class="curved-header">Projects</h1>
-    <a href="https://aryak-mohanty.github.io/QR-getter/" class="curved-button">QR Code Generator</a>
-    <a href="https://aryak-mohanty.github.io/Calculator/" class="curved-button">Calculator</a>
-    <a href="https://aryak-mohanty.github.io/Weather-web/" class="curved-button">Check weather</a>
-    <a href="https://aryak-mohanty.github.io/ipgenerator/" class="curved-button">Check Ip Address</a>
-    <a href="https://aryak-mohanty.github.io/Search_modernize/" class="curved-button">Search the internet</a>
-    <br>
-
-  </div>
 </body>
 
 </html>
