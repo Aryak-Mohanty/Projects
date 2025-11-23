@@ -146,6 +146,13 @@
       user-select: none;
     }
 
+    .navbar-toggler {
+      border: none;
+      box-shadow: none !important;
+      /* Remove focus outline */
+      padding: 0;
+    }
+
     .nav-link {
       font-weight: 500;
       color: var(--text-color) !important;
@@ -171,6 +178,16 @@
 
     .nav-link:hover {
       color: var(--primary-color) !important;
+    }
+
+    /* Animate Dropdown Arrow */
+    .dropdown-toggle::after {
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item.show .dropdown-toggle::after,
+    .dropdown-toggle.show::after {
+      transform: rotate(180deg);
     }
 
     .dropdown-menu {
@@ -379,7 +396,7 @@
   </style>
 </head>
 
-<body>
+<body class="dark-mode">
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
