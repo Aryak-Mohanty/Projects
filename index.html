@@ -41,7 +41,6 @@
     /* Specific text color override for dark mode readability if needed */
     body.dark-mode .card-title,
     body.dark-mode .nav-link,
-    body.dark-mode h1,
     body.dark-mode .dropdown-item {
       color: #ffffff !important;
     }
@@ -220,6 +219,39 @@
       font-weight: 700;
       margin-bottom: 1rem;
       animation: fadeInDown 1s ease-out;
+      cursor: default;
+
+      /* Smooth Gradient Transition Setup */
+      --hero-text-color: var(--text-color);
+      background: linear-gradient(to right, var(--hero-text-color) 0%, var(--hero-text-color) 50%, var(--primary-color) 50%, var(--secondary-color) 100%);
+      background-size: 200% 100%;
+      background-position: 0% 0%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: background-position 0.5s ease-out, transform 0.3s ease;
+    }
+
+    /* Hover Effect: Slide in the gradient */
+    .hero-title:hover {
+      background-position: 100% 0%;
+      transform: scale(1.05);
+    }
+
+    /* Dark Mode Adjustments */
+    body.dark-mode .hero-title {
+      --hero-text-color: #ffffff;
+      /* White text in dark mode start */
+      /* Update gradient for dark mode to ensure vibrant colors match */
+      background: linear-gradient(to right, #ffffff 0%, #ffffff 50%, #ff6b6b 50%, #6c5ce7 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    body.dark-mode .hero-title:hover {
+      background-position: 100% 0%;
     }
 
     /* Project Cards */
